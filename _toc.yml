@@ -4,10 +4,11 @@
 format: jb-book
 root: intro
 chapters:
+- file: test-timeseries 
 - file: test-admonitions
 - file: test-panels
 - file: test-sidebars
 - file: markdown
 # - file: notebooks
 - file: markdown-notebooks
-- file: test-timeseries #- this builds manually :TODO: test whether it builds using Github actions
+
