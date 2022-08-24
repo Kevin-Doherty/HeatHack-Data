@@ -1,8 +1,10 @@
-# HeatHack Test Book!!!!
+# HeatHack Test Book
 
-This is a test of Github Pages rendering, before we commit to Jupyter Book.  It's mostly the default Jupyter Book with a few simple format tests added to the beginning.
+This is HeatHack's test of Jupyter Book as a way of producing reading materials for the programme and graphs of temperature and relative humidity data for each of our participating venues.  
 
-This is public, but of no use to anyone but the developers yet (sorry).
+The book builds automatically when changes are pushed to the main branch of the repository.
+
+This is public, but of no use to anyone but the developers (sorry).
 
 See [the Jupyter Book documentation](https://jupyterbook.org) for documentation.
 
