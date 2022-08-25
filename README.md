@@ -20,7 +20,9 @@ We want to produce plots of temperature and RH data from the venues.  There are 
     Monday, 9:00, 18, 11:00, 10, 17:00, 21, 18:00, 10
     ...
 
-These are their timeswitch settings; it's pairs of times and temperatures (deg C).  For some venues, it might be what they want to achieve rather than actual control they have!  This has real benefits because we could then perhaps highlight times when the users are in the space using vertical bars and shading and summmarise how often they are way over or under their intentions.  They could submit them using a Google form and we can move them over to Github by hand.  This means for some venues, this file is likely to be missing and graphs relying on it (or plot shading and bars) should be omitted.
+If they have a modern (predictive) timeswitch, these should be the same as their timeswitch settings; it's pairs of times and temperatures (deg C).  For some venues, it might be what they want to achieve rather than actual control they have, so there might also be an old-fashioned description in the same format of when the heating system actually comes on, not when the people are in and their demand temperature.
+
+Having when users are in the space and what they need for temperature has real benefits because we could then perhaps highlight times when the users are in the space using vertical bars and shading and summmarise how often they are way over or under their intentions.  They could submit them using a Google form and we can move them over to Github by hand.  This means for some venues, this file is likely to be missing and graphs relying on it (or plot shading and bars) should be omitted.
 
 5. Calibration data sets - rows are timestamps, columns are output temp and RH readings from around 10 devices at a time with a header that uses some value from (1) and (2), uploaded to Github by hand.  
 
