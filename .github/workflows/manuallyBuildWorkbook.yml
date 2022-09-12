@@ -32,11 +32,11 @@ jobs:
         pip install -r requirements.txt
 
     - name: install dependencies
-        run: |
+      run: |
           pip install requests pandas datetime
     
     - name: execute ThingSpeak py script # run the run.py to get the latest data
-        run: |
+      run: |
           python3 ThingSpeakAPI.py
     
     # Download 'data' folder from Google Drive
