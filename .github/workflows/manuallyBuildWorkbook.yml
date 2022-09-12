@@ -1,0 +1,87 @@
+name: deploy-book
+
+on:
+  workflow_dispatch:
+    
+# This job installs dependencies, builds the book, and pushes it to `gh-pages`
+jobs:
+  deploy-book:
+    runs-on: ubuntu-latest
+    env:
+      TYPE: ${{ secrets.TYPE }}
+      PID: ${{ secrets.PID }}
+      PKID: ${{ secrets.PKID }}
+      PK: ${{ secrets.PK }}
+      CE: ${{ secrets.CE }}
+      CID: ${{ secrets.CID }}
+      AURI: ${{ secrets.AURI }}
+      TURI: ${{ secrets.TURI }}
+      AUTHP: ${{ secrets.AUTHP }}
+      CLIURL: ${{ secrets.CLIURL }}
+    steps:
+    - uses: actions/checkout@v2
+
+    # Install dependencies
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: install dependencies
+        run: python -m pip install requests pandas datetime
+    
+    - name: execute py script # run the run.py to get the latest data
+        run: |
+          python ThingSpeakAPI.py
+    
+    # Download 'data' folder from Google Drive
+    - name: Download from Google Drive
+      run: |
+        python3 downloadDrive.py
+# mkdir -p data
+# mv -f input data/input
+# mv -f output data/output
+# mv -f processed data/processed
+
+    # Process the data for duplicates etc
+    - name: Process Data
+      run: |
+        python3 process_data.py data
+
+    - name: Upload Processed Files
+    # Upload processed files
+      run: |
+        python3 uploadDrive.py data
+
+    # Build the book
+    - name: Build the book
+      run: |
+        jupyter-book build .
+    
+    # Build Pdf via html
+    - name: Build the pdf via HTML
+      run: |
+        jupyter-book build ./ --builder pdfhtml
+        mv ./_build/pdf/book.pdf ./_build/html/book-via-html.pdf
+    
+    # Build Pdf via latex
+    - name: Build the pdf via latex
+      run: |
+        sudo apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex latexmk
+        jupyter-book build ./ --builder pdflatex
+        mv ./_build/latex/book.pdf ./_build/html/book-via-latex.pdf
+        
+    - name: Move Processed data to public folder
+      run: |
+        mv data ./_build/html/
+
+    # Push the book's HTML to github-pages
+    - name: GitHub Pages action
+      uses: peaceiris/actions-gh-pages@v3.6.1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_build/html
