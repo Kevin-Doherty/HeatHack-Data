@@ -40,10 +40,11 @@ jobs:
           python3 ThingSpeakAPI.py
     
 #     # Download 'data' folder from Google Drive
-#     - name: Download from Google Drive
-#       run: |
+    - name: Make Python Directory #Download from Google Drive
+      run: |
+            mkdir -p data
 #         python3 downloadDrive.py
-# # mkdir -p data
+            
 # # mv -f input data/input
 # # mv -f output data/output
 # # mv -f processed data/processed
