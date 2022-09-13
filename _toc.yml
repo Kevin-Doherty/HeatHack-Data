@@ -11,4 +11,5 @@ chapters:
 - file: markdown
 # - file: notebooks
 - file: markdown-notebooks
+- file: thingspeak-graphing
 

@@ -1,0 +1,1 @@
+This folder contains the sensor data pulled from the ThingSpeak API by GitHub actions. Each file is named after the associated sensorMac address.
