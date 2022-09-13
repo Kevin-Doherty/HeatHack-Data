@@ -33,7 +33,7 @@ jobs:
 
     - name: install dependencies
       run: |
-          pip install requests pandas datetime
+          pip install requests pandas datetime ipywidgets plotly
     
     - name: execute ThingSpeak py script # run the run.py to get the latest data
       run: |
