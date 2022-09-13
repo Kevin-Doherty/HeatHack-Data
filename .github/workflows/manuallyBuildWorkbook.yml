@@ -39,24 +39,24 @@ jobs:
       run: |
           python3 ThingSpeakAPI.py
     
-    # Download 'data' folder from Google Drive
-    - name: Download from Google Drive
-      run: |
-        python3 downloadDrive.py
-# mkdir -p data
-# mv -f input data/input
-# mv -f output data/output
-# mv -f processed data/processed
+#     # Download 'data' folder from Google Drive
+#     - name: Download from Google Drive
+#       run: |
+#         python3 downloadDrive.py
+# # mkdir -p data
+# # mv -f input data/input
+# # mv -f output data/output
+# # mv -f processed data/processed
 
-    # Process the data for duplicates etc
-    - name: Process Data
-      run: |
-        python3 process_data.py data
+#     # Process the data for duplicates etc
+#     - name: Process Data
+#       run: |
+#         python3 process_data.py data
 
-    - name: Upload Processed Files
-    # Upload processed files
-      run: |
-        python3 uploadDrive.py data
+#     - name: Upload Processed Files
+#     # Upload processed files
+#       run: |
+#         python3 uploadDrive.py data
 
     # Build the book
     - name: Build the book
