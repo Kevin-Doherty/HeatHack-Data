@@ -1,11 +1,11 @@
 name: deploy-book
 
 on:
-  push:
-    branches:
-    - main
-  schedule:
-    - cron: '0 1 * * *'
+#   push:
+#     branches:
+#     - main
+#   schedule:
+#     - cron: '0 1 * * *'
     
 # This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
