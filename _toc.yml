@@ -4,12 +4,12 @@
 format: jb-book
 root: intro
 chapters:
-- file: test-timeseries 
-- file: test-admonitions
-- file: test-panels
-- file: test-sidebars
-- file: markdown
+# - file: test-timeseries 
+# - file: test-admonitions
+# - file: test-panels
+# - file: test-sidebars
+# - file: markdown
 # - file: notebooks
-- file: markdown-notebooks
+# - file: markdown-notebooks
 - file: thingspeak-graphing
 
